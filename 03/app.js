@@ -2,7 +2,7 @@ console.log('DOM');
 
 const buttonSettings = {
     attr: {
-        class: 'btn',
+        className: 'btn',
         title: 'super button'
     },
     css: {
@@ -17,7 +17,7 @@ const applySettings = (element, settings) => {
     for (const [key, value] of Object.entries(settings)) {
         if (key === 'attr') {
             for (const [attr, attrValue] of Object.entries(value)) {
-                element.setAttribute(attr, attrValue);
+                element[attr] = attrValue
             }
         } else if (key === 'css') {
             for (const [prop, propValue] of Object.entries(value)) {
@@ -31,6 +31,5 @@ const applySettings = (element, settings) => {
 
 const button = document.createElement('button');
 applySettings(button, buttonSettings);
-
 const buttonParent = document.querySelector('.parent-for-button');
 buttonParent.appendChild(button);

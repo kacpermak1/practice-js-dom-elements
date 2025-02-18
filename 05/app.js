@@ -1,9 +1,7 @@
 console.log('DOM');
 
 const curr = document.querySelector('.js-curr');
-if (!curr) {
-    console.error('.js-curr elem not found');
-} else {
+if (curr) {
     const currParent = curr.parentElement;
     const articlesSection = currParent.parentElement;
     const articles = articlesSection.children;
@@ -41,4 +39,6 @@ if (!curr) {
     if (descEl) descEl.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
 
     articlesSection.insertBefore(newArticle, articlesSection.firstElementChild);
+} else {
+    console.error('.js-curr elem not found');
 }
